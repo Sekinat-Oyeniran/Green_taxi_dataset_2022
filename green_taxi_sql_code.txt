@@ -1,0 +1,75 @@
+-- Adding new columns to table --
+
+ALTER TABLE test
+ADD COLUMN pickup_month INT,
+ADD COLUMN pickup_day_of_week TEXT,
+ADD COLUMN pickup_hour INT,
+ADD COLUMN dropoff_month INT,
+ADD COLUMN dropoff_day_of_week TEXT,
+ADD COLUMN dropoff_hour INT;
+
+
+
+-- Extracting Months, Days of the week,and Hour from datetime::timestamp --
+-- Update table with extracted values --
+
+UPDATE test
+SET 
+    pickup_month = EXTRACT(MONTH FROM lpep_pickup_datetime::timestamp),
+    pickup_day_of_week = TO_CHAR(lpep_pickup_datetime::timestamp, 'Day'),
+    pickup_hour = EXTRACT(HOUR FROM lpep_pickup_datetime::timestamp),
+    dropoff_month = EXTRACT(MONTH FROM lpep_dropoff_datetime::timestamp),
+    dropoff_day_of_week = TO_CHAR(lpep_dropoff_datetime::timestamp, 'Day'),
+    dropoff_hour = EXTRACT(HOUR FROM lpep_dropoff_datetime::timestamp);
+	
+
+-- Writing a case statement to extract Time of the day, Morning, Afternoon, Evening, and Night --
+-- For pick_up and drop_off time --
+
+ALTER TABLE test ADD COLUMN pickup_time_of_day TEXT;
+
+UPDATE test
+SET pickup_time_of_day =  
+    CASE
+        WHEN EXTRACT(HOUR FROM lpep_pickup_datetime::timestamp) BETWEEN 5 AND 11 THEN 'Morning'
+        WHEN EXTRACT(HOUR FROM lpep_pickup_datetime::timestamp) BETWEEN 12 AND 16 THEN 'Afternoon'
+        WHEN EXTRACT(HOUR FROM lpep_pickup_datetime::timestamp) BETWEEN 17 AND 20 THEN 'Evening'
+        ELSE 'Night'
+    END;
+
+
+ALTER TABLE test ADD COLUMN dropoff_time_of_day TEXT;
+
+UPDATE test
+SET dropoff_time_of_day =  
+    CASE
+        WHEN EXTRACT(HOUR FROM lpep_pickup_datetime::timestamp) BETWEEN 5 AND 11 THEN 'Morning'
+        WHEN EXTRACT(HOUR FROM lpep_pickup_datetime::timestamp) BETWEEN 12 AND 16 THEN 'Afternoon'
+        WHEN EXTRACT(HOUR FROM lpep_pickup_datetime::timestamp) BETWEEN 17 AND 20 THEN 'Evening'
+        ELSE 'Night'
+    END;
+	
+	
+SELECT *
+FROM test;
+
+-- Linking taxi_zone_lookup table to test table --
+
+SELECT
+    test.*,
+    pu.borough AS pickup_borough,
+    pu.zone AS pickup_zone,
+    dof.borough AS dropoff_borough,
+    dof.zone AS dropoff_zone
+FROM
+    test
+LEFT JOIN taxi_zone_lookup AS pu
+    ON test."PULocationID" = pu.locationid
+LEFT JOIN taxi_zone_lookup AS dof
+    ON test."DOLocationID" = dof.locationid;
+
+-- Update test with the newly created columns above --
+ALTER TABLE test ADD COLUMN pickup_borough TEXT;
+ALTER TABLE test ADD COLUMN pickup_zone TEXT;
+ALTER TABLE test ADD COLUMN dropoff_borough TEXT;
+ALTER TABLE test ADD COLUMN dropoff_zone TEXT;
