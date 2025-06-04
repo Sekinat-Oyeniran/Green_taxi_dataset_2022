@@ -46,7 +46,7 @@ This project follows a structured data analytics pipeline that transforms raw NY
 
 * Visualize: Built an interactive dashboard to reveal trip volume trends, revenue drivers, payment behavior, and location-based demand.
 
-  [View the dashboard here](https://app.powerbi.com/links/G9QGLnCRSo?ctid=bd697c1b-c481-479c-841e-c618542675c3&pbi_source=linkShare)
+  [View the Dashboard Here](https://app.powerbi.com/links/G9QGLnCRSo?ctid=bd697c1b-c481-479c-841e-c618542675c3&pbi_source=linkShare)
 
 This end-to-end approach supports effective decision-making using real-world operational data.
 
