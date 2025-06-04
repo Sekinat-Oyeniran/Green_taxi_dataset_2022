@@ -3,7 +3,7 @@ Green Taxi Operations in NYC - An analytical overview of trip volume, revenue pa
 
 📌 Project Introduction
 
-This project explores the operational patterns of Green Taxis in New York City for the year 2022. The goal is to understand rider behavior, revenue trends, popular zones, and temporal dynamics across different boroughs using real-world NYC Taxi & Limousine Commission (TLC) trip data. The insights are intended to inform urban planning, transportation policy, and business decision-making.
+This project explores the operational dynamics of Green Taxis in New York City during 2022. Using real-world data from the NYC Taxi & Limousine Commission (TLC), the analysis uncovers patterns in rider behavior, revenue generation, geographic demand, and time-based activity. The goal is to provide actionable insights to support urban planning, transportation policy, and business optimization.
 
 🎯 Project Aim
 
@@ -17,31 +17,36 @@ This project explores the operational patterns of Green Taxis in New York City f
   
 Source: NYC Taxi & Limousine Commission (TLC) Open Data
 
-Primary Dataset: Green Taxi Trip Records - 2022
+Primary Dataset: Green Taxi Trip Records - 2022 (originally in Parquet format, processed using Python and read into CSV for ease of storage and chunked processing)
 
 Supporting Dataset: Taxi Zone Lookup Table
 
-Format: Parquet
+The dataset includes:
 
-The dataset contains detailed trip-level information including:
+"Pickup & Drop-off Timestamps"
 
-"Pickup and drop-off timestamps", "Pickup and drop-off location IDs", "Trip distance", "Passenger count", "Payment and Fare Information"
+"Location IDs"
 
-This data provides a comprehensive view of green taxi operations in NYC throughout 2022. 
+"Trip Distance & Passenger Count"
+
+"Payment Type, Fare Amount, and Total Amount"
+
+These records offer a detailed operational footprint of green taxi activity throughout NYC in 2022.
+
 
 🧠 Project Overview
 
-This project follows a structured data pipeline approach designed to prepare and analyze NYC Green Taxi trip data using modern data engineering and visualization practices. It transforms raw data into actionable insights through the following stages:
+This project follows a structured data analytics pipeline that transforms raw NYC taxi data into actionable insights through the following stages:
 
-* Ingest: The data was collected by importing raw NYC Green Taxi trip records and supporting lookup tables from the source into a database for storage, processing, and analysis.
+* Ingest: Imported green taxi trip records and zone lookup tables into a database for processing and analysis.
 
-* Extract & Transform: Cleaned and prepared the data by handling nulls, converting data types, enriching it with new features (like month, day of week, and time of day), and joining zone lookup details.
+* Extract & Transform: Cleaned data, handled nulls, standardized formats, and engineered new time-based features (month, hour, day).
 
-* Load: Saved the cleaned dataset into a relational database and later loaded it into Power BI for analysis.
+* Load: Stored cleaned datasets in PostgreSQL, and later loaded into Power BI.
 
-* Visualize: Built an interactive dashboard in Power BI to uncover patterns in trip volume, revenue trends, payment behaviors, and popular zones.
+* Visualize: Built an interactive dashboard to reveal trip volume trends, revenue drivers, payment behavior, and location-based demand.
 
-This streamlined process supports a better understanding of taxi operations and helps guide decision-making with real-world data.
+This end-to-end approach supports effective decision-making using real-world operational data.
 
 🧪 Methodology
 
@@ -111,12 +116,12 @@ This suggests digital payments dominate green taxi transactions.
 
 * Revenue Distribution by Time of Day
 
-The second time block (likely late morning to afternoon) generated the highest revenue (~$5.26M), followed by early morning trips.
+The afternoon period (second time block) generated the highest revenue (~$5.26M) and also had the highest number of pickups, suggesting alignment between ride frequency and earnings during midday.
 
 Revenue dips during nighttime hours, which may suggest reduced activity or shorter trip distances.
 
 
-✅ Conclusions & Recommendations
+✅ Strategic Takeaways & Recommendations
 
 * High Weekday Demand (Peak on Thursdays)
 
