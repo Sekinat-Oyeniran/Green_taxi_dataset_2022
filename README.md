@@ -33,13 +33,13 @@ This data provides a comprehensive view of green taxi operations in NYC througho
 
 This project follows a structured data pipeline approach designed to prepare and analyze NYC Green Taxi trip data using modern data engineering and visualization practices. It transforms raw data into actionable insights through the following stages:
 
-Ingest: The data was collected by importing raw NYC Green Taxi trip records and supporting lookup tables from the source into a database for storage, processing, and analysis.
+* Ingest: The data was collected by importing raw NYC Green Taxi trip records and supporting lookup tables from the source into a database for storage, processing, and analysis.
 
-Extract & Transform: Cleaned and prepared the data by handling nulls, converting data types, enriching it with new features (like month, day of week, and time of day), and joining zone lookup details.
+* Extract & Transform: Cleaned and prepared the data by handling nulls, converting data types, enriching it with new features (like month, day of week, and time of day), and joining zone lookup details.
 
-Load: Saved the cleaned dataset into a relational database and later loaded it into Power BI for analysis.
+* Load: Saved the cleaned dataset into a relational database and later loaded it into Power BI for analysis.
 
-Visualize: Built an interactive dashboard in Power BI to uncover patterns in trip volume, revenue trends, payment behaviors, and popular zones.
+* Visualize: Built an interactive dashboard in Power BI to uncover patterns in trip volume, revenue trends, payment behaviors, and popular zones.
 
 This streamlined process supports a better understanding of taxi operations and helps guide decision-making with real-world data.
 
@@ -68,6 +68,92 @@ Data Modeling:
 * Relationships created between trip data and zone lookup tables
 
 * Measures and calculated columns added in Power BI for advanced analysis
+
+🔍 Observations
+
+* Trip volumes varied by day of the week, with Thursday recording the highest.
+
+* Most trips were short in distance, with 1 to 2 passengers.
+
+* Cash and credit card were dominant payment methods.
+
+* Afternoon periods showed a spike in trip frequency and revenue generation.
+
+📈 Key Insights from the Project
+
+* Trip Volume by Day of the Week
+
+Weekdays (Mon–Fri) showed consistently high taxi demand, peaking mid-week.
+
+Sundays (Day 6) recorded the lowest number of trips (~95K), suggesting lower demand on weekends.
+
+* Seasonal Trends in Taxi Trips
+
+Trip volume peaked in spring (April–May), likely due to favorable weather.
+
+A decline during summer (Jul–Aug) aligns with reduced city activity (e.g., vacations).
+
+A recovery was observed in December, suggesting holiday-related travel.
+
+* Most Active Boroughs by Taxi Zones
+
+Manhattan and Queens had the highest number of active taxi zones, each with 69 unique pickup locations, reflecting centrality in transportation.
+
+Staten Island had the lowest (~20), indicating minimal green taxi activity.
+
+* Payment Method Preferences by Trip Type
+
+Trip Type 1 (likely street-hail or individual trips) had higher representation and used payment_type 1 (e.g., card) for 63% of payments.
+
+Trip Type 2 (possibly dispatch or shared rides) leaned even more heavily on card payments (70.3%).
+
+This suggests digital payments dominate green taxi transactions.
+
+* Revenue Distribution by Time of Day
+
+The second time block (likely late morning to afternoon) generated the highest revenue (~$5.26M), followed by early morning trips.
+
+Revenue dips during nighttime hours, which may suggest reduced activity or shorter trip distances.
+
+
+✅ Conclusions & Recommendations
+
+* High Weekday Demand (Peak on Thursdays)
+
+Conclusion: Trips peak mid-week, especially on Thursdays.
+
+Recommendation: Optimize fleet allocation and pricing strategies on high-demand weekdays.
+
+* Afternoon Revenue Peak
+
+Conclusion: Most revenue is generated in the afternoon.
+
+Recommendation: Prioritize driver availability and manage traffic in busy zones during peak hours.
+
+* Summer Dip in Ridership
+
+Conclusion: Lower taxi usage in July–August suggests seasonal travel patterns.
+
+Recommendation: Adjust fleet operations seasonally; launch off-peak promotions.
+
+* Uneven Borough Demand
+
+Conclusion: Manhattan and Queens see the most activity; Staten Island the least.
+
+Recommendation: Improve service outreach and accessibility in underserved areas.
+
+* Preference for Card Payments
+
+Conclusion: Majority of trips are paid by card.
+
+Recommendation: Strengthen digital payment systems; encourage cashless adoption.
+
+* Trip Type Dominance
+
+Conclusion: Trip Type 1 (street-hails) is heavily preferred.
+
+Recommendation: Promote scheduled or app-based rides to enhance efficiency.
+
 
 
 
