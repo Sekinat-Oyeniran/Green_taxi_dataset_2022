@@ -36,7 +36,7 @@ This project follows a structured data analytics pipeline that transforms raw NY
 
 • Visualize: Built an interactive dashboard to reveal trip volume trends, revenue drivers, payment behaviour, and location-based demand.
 
-[View the Dashboard Here](https://app.powerbi.com/groups/me/reports/d2ae0472-43f3-4898-9c42-a315b48dfe0a/2a6a68f982aa7711e3b2?bookmarkGuid=95cd190c-f38e-441d-88d0-439578983fc0&bookmarkUsage=1&ctid=bd697c1b-c481-479c-841e-c618542675c3&portalSessionId=bd1c34e3-9efb-4e63-b26e-436bbb6daae9&fromEntryPoint=export)
+[View the Dashboard Here](https://app.powerbi.com/links/G9QGLnCRSo?ctid=bd697c1b-c481-479c-841e-c618542675c3&pbi_source=linkShare)
 
 🧪 Methodology
 
@@ -80,25 +80,25 @@ Data Modeling:
 
 Weekdays (Monday–Friday) showed consistently high taxi demand, peaking mid-week.
 
-Sundays (Day 6) recorded the lowest number of trips (~95K), suggesting lower demand on weekends.
+Sundays (Day 7) recorded the lowest number of trips (~95K), suggesting lower demand on weekends.
 
 • Seasonal Trends in Taxi Trips
 
-Trip volume peaked in spring (April–May), likely due to favorable weather.
+Trip volume peaked in spring (March–May), likely due to favorable weather.
 
 A decline during summer (July–August) aligns with reduced city activity (e.g., vacations).
 
 A recovery was observed in December, suggesting holiday-related travel.
 
-• Most Active Boroughs by Taxi Zones
+• Passenger Distribution by Borough
 
-Manhattan and Queens had the highest number of active taxi zones, each with 69 unique pickup locations, reflecting centrality in transportation. Staten Island had the lowest (~20), indicating minimal green taxi activity.
+Manhattan and Queens recorded the highest passenger volumes, reflecting their central role in transportation demand. Brooklyn followed at a lower level, while Staten Island showed almost no green taxi passenger activity.
 
 • Payment Method Preferences by Trip Type
 
 Trip Type 1 (likely street-hail or individual trips) had higher representation and used payment_type 1 (e.g., card) for 63% of payments.
 
-Trip Type 2 (possibly dispatch or shared rides) leaned even more heavily on card payments (70.3%).
+Trip Type 2 (possibly dispatch or shared rides) leaned even more heavily on card payments (70%).
 
 This suggests digital payments dominate green taxi transactions.
 
@@ -126,11 +126,11 @@ Conclusion: Lower taxi usage in July–August suggests seasonal travel patterns.
 
 Recommendation: Adjust fleet operations seasonally; launch off-peak promotions.
 
-• Uneven Borough Demand
+• Uneven Borough Passenger Demand
 
-Conclusion: Manhattan and Queens see the most activity; Staten Island the least.
+Conclusion: Passenger demand is concentrated in Manhattan and Queens, with significantly lower activity in Brooklyn and Bronx, and minimal to no demand in Staten Island.
 
-Recommendation: Improve service outreach and accessibility in underserved areas.
+Recommendation: Optimize driver allocation and service availability in high-demand boroughs, while exploring strategies to improve accessibility and outreach in less performing areas.
 
 • Preference for Card Payments
 
